@@ -29,7 +29,7 @@ wineCount percent drinks = percent * drinks / 4
 liquorCount :: Fractional a => a -> a -> a
 liquorCount percent drinks = percent * drinks / 18
 
-barBreakdown  :: Bar -> Double -> Bar
+barBreakdown :: Bar -> Double -> Bar
 barBreakdown bT drinks = Bar b w l
   where b = beerCount (beer bT) drinks
         w = wineCount (wine bT) drinks
@@ -61,12 +61,15 @@ main :: IO ()
 main = do
   putStrLn "How many people are you expecting?"
   ppl <- read <$> getLine
+
   putStrLn "How many hours will your reception last?"
   hrs <- read <$> getLine
+
   putStrLn "Are you planning on doing a siguature cocktail?"
   putStrLn "[1] Yes"
   putStrLn "[2] No"
   signature <- read <$> getLine
+
   putStrLn "What type of bar will you have? (Enter the corresponding number)"
   putStrLn "[1] Modified Full Bar"
   putStrLn "[2] Wine & Beer Only"
